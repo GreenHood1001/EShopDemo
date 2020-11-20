@@ -84,8 +84,11 @@ body {
 }
 
 .responsive{
-  max-width: 90vw;
+  width: 100%;
   height: auto;
-  margin-left: 5px;
+  max-height: 25vw;
 }
 
+.card-img{
+  opacity: 0.7;
+}
