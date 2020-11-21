@@ -21,6 +21,7 @@
                 </div>
                 <div class="col-md-10">
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" style="width: 100%;">
+                       <partial name="_LoginPartial" />
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -34,6 +35,7 @@
                             <li class="nav-item" align="Right">
                                 <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="Index" data-toggle="lightbox"><button type="button" class="btn btn-success">Login</button></a>
                             </li>
+                             <partial name="_MenuPartial" />
                         </ul>
                     </div>
                 </div>
@@ -56,14 +58,6 @@
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js" integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g==" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script>
-        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox({
-                    alwaysShowClose: true
-                });
-            })
-    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
