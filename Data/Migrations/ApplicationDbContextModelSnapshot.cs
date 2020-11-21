@@ -19,6 +19,45 @@ namespace EShopDemo.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            modelBuilder.Entity("EShopDemo.Models.Contacto", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnName("email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnName("lastname")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Message")
+                        .HasColumnName("message")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnName("Name")
+                        .HasColumnType("text");
+
+                    b.Property<int>("Phone")
+                        .HasColumnName("phone")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Subject")
+                        .HasColumnName("subject")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("t_contacto");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
