@@ -12,5 +12,7 @@ namespace EShopDemo.Data
             : base(options)
         {
         }
+
+        public DbSet<EShopDemo.Models.Contacto> Contactos { get; set; }
     }
 }
