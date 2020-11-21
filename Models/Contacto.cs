@@ -1,10 +1,9 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 namespace EShopDemo.Models
 {
-     [Table("t_contacto")]
+    [Table("t_contacto")]
     public class Contacto
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
