@@ -14,5 +14,6 @@ namespace EShopDemo.Data
         }
 
         public DbSet<EShopDemo.Models.Contacto> Contactos { get; set; }
+        public DbSet<EShopDemo.Models.Categoria> Categorias { get; set; }
     }
 }

@@ -5,22 +5,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 using EShopDemo.Models;
+using EShopDemo.Data;
+using System.Drawing;
+using System.IO;
+
+
 
 namespace EShopDemo.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            
+            var listCategoria=_context.Categorias.ToList();
+
+            foreach (var categoria in listCategoria){
+               using (MemoryStream mStream = new MemoryStream(categoria.Preview))
+                {
+                    categoria.Img=Image.FromStream(mStream);
+                }
+            }
+            return View(listCategoria);
         }
 
         public IActionResult Privacy()
