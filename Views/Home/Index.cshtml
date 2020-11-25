@@ -20,7 +20,7 @@
             {
                 <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
                     <div class="card bg-dark text-white">
-                        <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
+                        <img class="card-img" src="@Html.DisplayTextFor(modelItem=> categoria.imageData)" alt="Carpinteria">
                         <div class="card-img-overlay">
                             <h5 class="card-title">@Html.DisplayTextFor(modelItem=> categoria.Name)</h5>
                         </div>

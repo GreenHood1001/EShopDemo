@@ -20,6 +20,6 @@ namespace EShopDemo.Models
         public byte[] Preview { get; set; }
 
         [NotMapped]
-        public Image Img { get; set;}
+        public String imageData { get; set; }
     }
 }
