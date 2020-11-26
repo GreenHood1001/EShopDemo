@@ -32,10 +32,10 @@ namespace EShopDemo.Controllers
             var listCategoria=_context.Categorias.ToList();
 
             foreach (var categoria in listCategoria){
-               using (MemoryStream mStream = new MemoryStream(categoria.Preview))
-                {
-                    categoria.Img=Image.FromStream(mStream);
-                }
+                string imageBase64Data = Convert.ToBase64String(categoria.Preview);
+                string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
+                ViewBag.imageDataURL = imageDataURL;
+                categoria.imageData = ViewBag.imageDataURL;
             }
             return View(listCategoria);
         }
