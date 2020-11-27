@@ -21,7 +21,6 @@
                 </div>
                 <div class="col-md-10">
                     <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" style="width: 100%;">
-                    <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -29,7 +28,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <partial name="_MenuPartial" />
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Usuario" asp-action="Registro">Registro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Usuario" asp-action="Login">Login</a>
+                        </li>
                     </ul>
                     </div>
                 </div>
