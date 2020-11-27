@@ -48,6 +48,24 @@ namespace EShopDemo.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "t_contacto",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(nullable: false),
+                    lastname = table.Column<string>(nullable: false),
+                    email = table.Column<string>(nullable: true),
+                    phone = table.Column<int>(nullable: false),
+                    subject = table.Column<string>(nullable: true),
+                    message = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_t_contacto", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -207,6 +225,9 @@ namespace EShopDemo.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "t_contacto");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

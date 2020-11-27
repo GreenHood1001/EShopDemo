@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using EShopDemo.Models;
 
 namespace EShopDemo.Data
 {
@@ -13,6 +14,7 @@ namespace EShopDemo.Data
         {
         }
 
+        public DbSet<EShopDemo.Models.Usuario> Usuarios { get; set; }
         public DbSet<EShopDemo.Models.Contacto> Contactos { get; set; }
         public DbSet<EShopDemo.Models.Categoria> Categorias { get; set; }
     }
