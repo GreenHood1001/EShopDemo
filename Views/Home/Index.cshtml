@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<EShopDemo.Models.Categoria>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -14,38 +16,17 @@
     <div style="margin-bottom: 2vw;">
         <h3>Categorias</h3>
         <div class="row">
-            <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Carpinteria</h5>
+            @foreach (var categoria in Model)
+            {
+                <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
+                    <div class="card bg-dark text-white">
+                        <img class="card-img" src="@Html.DisplayTextFor(modelItem=> categoria.imageData)" alt="Carpinteria">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">@Html.DisplayTextFor(modelItem=> categoria.Name)</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Carpinteria</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Carpinteria</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Carpinteria</h5>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
     <div>
