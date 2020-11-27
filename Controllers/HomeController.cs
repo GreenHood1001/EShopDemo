@@ -8,8 +8,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using EShopDemo.Models;
 using EShopDemo.Data;
-using System.Drawing;
-using System.IO;
+using System.Dynamic;
 
 
 
@@ -37,7 +36,9 @@ namespace EShopDemo.Controllers
                 ViewBag.imageDataURL = imageDataURL;
                 categoria.imageData = ViewBag.imageDataURL;
             }
-            return View(listCategoria);
+            dynamic modelo= new ExpandoObject();
+            modelo.Categorias= listCategoria;
+            return View(modelo);
         }
 
         public IActionResult Privacy()

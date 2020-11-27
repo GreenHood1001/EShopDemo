@@ -1,4 +1,6 @@
-﻿@model IEnumerable<EShopDemo.Models.Categoria>
+﻿
+
+@model dynamic
 
 @{
     ViewData["Title"] = "Home Page";
@@ -15,19 +17,26 @@
 <div class="container">
     <div style="margin-bottom: 2vw;">
         <h3>Categorias</h3>
-        <div class="row">
-            @foreach (var categoria in Model)
-            {
-                <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                    <div class="card bg-dark text-white">
-                        <img class="card-img" src="@Html.DisplayTextFor(modelItem=> categoria.imageData)" alt="Carpinteria">
-                        <div class="card-img-overlay">
-                            <h5 class="card-title">@Html.DisplayTextFor(modelItem=> categoria.Name)</h5>
+        
+            <div class="main-carousel" data-flickity='{"groupCells": true, "cellAlign": "left", "contain": true }'>
+                @foreach (Categoria categoria in Model.Categorias)
+                {
+                        <div class="carousel-cell">
+                            <form asp-controller="Categoria" method="GET" asp-action="Index" id="@categoria.Name"> 
+                                <input type="hidden" value="@categoria.ID" id="valor">  
+                                <a href="javascript:{}" onclick="document.getElementById('@categoria.Name').submit();">
+                                    <div class="card bg-dark text-white">
+                                        <img class="card-img" src="@categoria.imageData" alt="@categoria.Name">
+                                        <div class="card-img-overlay">
+                                            <h5 class="card-title">@categoria.Name</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </form>
                         </div>
-                    </div>
-                </div>
-            }
-        </div>
+                }
+            </div>
+        
     </div>
     <div>
         <h3>Recomendaciones</h3>

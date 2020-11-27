@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
 
 namespace EShopDemo.Models
 {
@@ -21,5 +20,7 @@ namespace EShopDemo.Models
 
         [NotMapped]
         public String imageData { get; set; }
+
+
     }
 }

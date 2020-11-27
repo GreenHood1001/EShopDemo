@@ -1,3 +1,5 @@
+@model dynamic
+
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -11,7 +13,7 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <img class="responsive" src="imagenes/carro.png">
+            <img class="responsive" src="~/img/ofertas_banner.jpg">
         </div>
     </div>
     <div class="container-fluid">
@@ -28,82 +30,18 @@
     </div>
     <div class="container">
         <div class="row">
+          @foreach (Categoria categoria in Model.Mostrar)
+          {
             <div class="col-md-3 col-6">
                  <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="imagenes/carro.png" data-holder-rendered="true">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@categoria.imageData" data-holder-rendered="true">
                 <div class="card-body">
-                  <h4>TARIFAS</h4>
+                  <h4>@categoria.Name</h4>
                   <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 col-6">
-                 <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="imagenes/carro.png" data-holder-rendered="true">
-                <div class="card-body">
-                  <h4>TARIFAS</h4>
-                  <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-6">
-                 <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="imagenes/carro.png" data-holder-rendered="true">
-                <div class="card-body">
-                  <h4>TARIFAS</h4>
-                  <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-6">
-                 <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="imagenes/carro.png" data-holder-rendered="true">
-                <div class="card-body">
-                  <h4>TARIFAS</h4>
-                  <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
-                </div>
-              </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-6">
-                 <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="imagenes/carro.png" data-holder-rendered="true">
-                <div class="card-body">
-                  <h4>TARIFAS</h4>
-                  <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-6">
-                 <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="imagenes/carro.png" data-holder-rendered="true">
-                <div class="card-body">
-                  <h4>TARIFAS</h4>
-                  <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-6">
-                 <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="imagenes/carro.png" data-holder-rendered="true">
-                <div class="card-body">
-                  <h4>TARIFAS</h4>
-                  <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-6">
-                 <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="imagenes/carro.png" data-holder-rendered="true">
-                <div class="card-body">
-                  <h4>TARIFAS</h4>
-                  <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
-                </div>
-              </div>
-            </div>
+          }
         </div>
     </div>
 

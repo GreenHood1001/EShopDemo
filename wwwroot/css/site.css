@@ -91,4 +91,13 @@ body {
 
 .card-img{
   opacity: 0.7;
+  height: 130px;
+}
+
+.carousel-cell {
+  width: 23%;
+  height: auto;
+  margin-right: 10px;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
 }
