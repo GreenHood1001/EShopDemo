@@ -22,7 +22,7 @@
                 @foreach (Categoria categoria in Model.Categorias)
                 {
                         <div class="carousel-cell">
-                            <form asp-controller="Categoria" method="GET" asp-action="Index" id="@categoria.Name"> 
+                            <form method="GET" action="Categoria" id="@categoria.Name"> 
                                 <input type="hidden" value="@categoria.ID" id="valor">  
                                 <a href="javascript:{}" onclick="document.getElementById('@categoria.Name').submit();">
                                     <div class="card bg-dark text-white">
@@ -40,39 +40,23 @@
     </div>
     <div>
         <h3>Recomendaciones</h3>
-        <div class="row">
-            <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Carpinteria</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Carpinteria</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Carpinteria</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6" style="margin-bottom: 2vw;">
-                <div class="card bg-dark text-white">
-                    <img class="card-img" src="~/img/carpinteria.jpg" alt="Carpinteria">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">Carpinteria</h5>
-                    </div>
-                </div>
-            </div>
+        <div class="main-carousel" data-flickity='{"groupCells": true, "cellAlign": "left", "contain": true }'>
+                @foreach (Usuario usuario in Model.Usuarios)
+                {
+                        <div class="carousel-cell">
+                            <form method="GET" action="Categoria" id="@usuario.Nombre"> 
+                                <input type="hidden" value="@usuario.Id" id="valor">  
+                                <a href="javascript:{}" onclick="document.getElementById('@usuario.Nombre').submit();">
+                                    <div class="card bg-dark text-white">
+                                        <img class="card-img" src="@usuario.imgData" alt="@usuario.Nombre">
+                                        <div class="card-img-overlay">
+                                            <h5 class="card-title">@usuario.Nombre</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </form>
+                        </div>
+                }
         </div>
     </div>
 </div>

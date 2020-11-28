@@ -52,5 +52,11 @@ namespace EShopDemo.Models
         [Column("fec")]
         public DateTime? FecNac { get; set; }
 
+        [Column("foto")]
+        public byte[] Picture { get; set; }
+
+        [NotMapped]
+        public String imgData { get; set; }
+
     }
 }

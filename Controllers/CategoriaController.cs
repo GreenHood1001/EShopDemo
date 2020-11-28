@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,11 +22,12 @@ namespace EShopDemo.Controllers
         }
 
 
-        [HttpGet("Categoria")]
+        [HttpGet]
         public IActionResult Index(int id)
         {
+            
             var listCategoria=_context.Categorias.ToList();
-            ArrayList listMostrar= new ArrayList();
+            List<Categoria> listMostrar= new List<Categoria>();
             foreach(var categoria in listCategoria){
                 if(id==categoria.ID){
                     listMostrar.Add(categoria);

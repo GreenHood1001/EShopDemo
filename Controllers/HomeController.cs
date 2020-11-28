@@ -29,6 +29,7 @@ namespace EShopDemo.Controllers
         {
             
             var listCategoria=_context.Categorias.ToList();
+            var listUsuario=_context.Usuarios.ToList();
 
             foreach (var categoria in listCategoria){
                 string imageBase64Data = Convert.ToBase64String(categoria.Preview);
@@ -36,8 +37,19 @@ namespace EShopDemo.Controllers
                 ViewBag.imageDataURL = imageDataURL;
                 categoria.imageData = ViewBag.imageDataURL;
             }
+
             dynamic modelo= new ExpandoObject();
             modelo.Categorias= listCategoria;
+
+            foreach(var usuario in listUsuario){
+                string imageBase64Data = Convert.ToBase64String(usuario.Picture);
+                string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
+                ViewBag.imageDataURL = imageDataURL;
+                usuario.imgData = ViewBag.imageDataURL;
+            }
+
+            modelo.Usuarios=listUsuario;
+
             return View(modelo);
         }
 
