@@ -1,0 +1,47 @@
+@model EShopDemo.Models.Pago;
+
+@{
+    ViewBag.title = "Total a pagar";
+}
+
+<div class="container">
+    <h1 class="text-center"> @ViewBag.title</h1>
+
+    <div class="row text-center">
+
+
+    </div>
+
+    <!--TO Implementar ecko lightbox -->
+    <div class="row text-center">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
+  Detalle del pago
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Detalle del pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- To mostar detalle de la compra -->
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nemo iusto rerum nobis fugit. Quas obcaecati similique, non voluptates fugit sunt exercitationem nisi maxime architecto dolores sit dolor pariatur ab!</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-warning">Entendido</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+
+</div>
