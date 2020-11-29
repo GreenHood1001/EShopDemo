@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace EShopDemo.Models
 {
-
+//TO crear base de datos y vincular
     public class Pago
     {
         public int ID{ get; set;} 
