@@ -20,18 +20,18 @@
     </div>
     <br>
     <div class="container">
-        <div class="row">
             <div class="col-md-12 col-12">
-                <table class="table">
+                <table class=" table" class="responsive" >
                     <thead class="carro" >
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Precio</th>
                             <th scope="col">Cantidad</th>
                             <th scope="col">Subtotal</th>
-                            <th scope="col">Eliminar</th>
+                            <th scope="col"></th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +44,9 @@
                             <td>S/200.00</td>
                             <td>1</td>
                             <td>S/200.00</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-info">Eliminar</button>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
@@ -54,6 +57,9 @@
                             <td>S/150.00</td>
                             <td>1</td>
                             <td>S/150.00</td>
+                            <td>
+                               <button type="button" class="btn btn-outline-info">Eliminar</button>
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
@@ -64,11 +70,13 @@
                             <td>S/300.00</td>
                             <td>1</td>
                             <td>S/300.00</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-info">Eliminar</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>   
-        </div>
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
