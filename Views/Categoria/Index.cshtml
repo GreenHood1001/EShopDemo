@@ -11,23 +11,28 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin-bottom: 4vw;">
         <div class="row">
             <img class="responsive" src="~/img/ofertas_banner.jpg">
         </div>
     </div>
     <div class="container">
         <div class="row">
-          @foreach (Categoria categoria in Model.Mostrar)
+          @foreach (Producto producto in Model.Mostrar)
           {
             <div class="col-md-3 col-6">
-                 <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@categoria.imageData" data-holder-rendered="true">
-                <div class="card-body">
-                  <h4>@categoria.Name</h4>
-                  <p class="card-text">Con O´CLOCK puedes econtrar una variedad de tarifas que se ajusten a tu bolsillo, ya sea dependiendo de la distancia, tipo de carro, entre otras caracteristicas.</p>
-                </div>
-              </div>
+              <form method="GET" action="Detalle" id="@producto.Name"> 
+                <input type="hidden" value="@producto.ID" id="valor" asp-for="@producto.ID">  
+                <a href="javascript:{}" onclick="document.getElementById('@producto.Name').submit();">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@producto.imageData" data-holder-rendered="true">
+                    <div class="card-body">
+                      <h4>@producto.Name</h4>
+                      <p class="card-text">@producto.Description</p>
+                    </div>
+                  </div>
+                </a>
+              </form>
             </div>
           }
         </div>
