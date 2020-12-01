@@ -6,21 +6,36 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EShopDemo.Models;
-
+using EShopDemo.Data;
+using System.Dynamic;
 namespace EShopDemo.Controllers
 {
     public class CategoriaController : Controller
     {
         private readonly ILogger<CategoriaController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public CategoriaController(ILogger<CategoriaController> logger)
+        public CategoriaController(ILogger<CategoriaController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+
+        [HttpGet]
+        public IActionResult Index(int id)
         {
-            return View();
+            
+            var listCategoria=_context.Categorias.ToList();
+            List<Categoria> listMostrar= new List<Categoria>();
+            foreach(var categoria in listCategoria){
+                if(id==categoria.ID){
+                    listMostrar.Add(categoria);
+                }
+            }
+            dynamic modelo = new ExpandoObject();
+            modelo.Mostrar = listMostrar;
+            return View(modelo);
         }
 
 
