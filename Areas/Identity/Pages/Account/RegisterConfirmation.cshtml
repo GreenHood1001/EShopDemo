@@ -1,0 +1,24 @@
+@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Confirmación de registro";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+<p>
+    Le agradecemos por elegir a EShop como su tienda favorita de servicios.
+    <br/>
+    <a id="confirm-link" href="@Model.EmailConfirmationUrl">Haga clic aquí para confirmar su cuenta.</a>
+</p>
+    }
+    else
+    {
+<p>
+        Por favor revise su correo electrónico para confirmar su cuenta.
+</p>
+    }
+}
+
