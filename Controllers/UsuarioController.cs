@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using EShopDemo.Data;
 using EShopDemo.Models;
 
@@ -9,65 +10,29 @@ namespace EShopDemo.Controllers
 {
     public class UsuarioController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private UserManager<IdentityUser> _um;
-        private SignInManager<IdentityUser> _sim;
-        public UsuarioController(ApplicationDbContext context, UserManager<IdentityUser> um, SignInManager<IdentityUser> sim)
+private readonly ILogger<UsuarioController> _logger;
+       private readonly ApplicationDbContext _context;
+
+
+        public UsuarioController(ILogger<UsuarioController> logger,
+            ApplicationDbContext context)
         {
+            _logger = logger;
             _context = context;
-            _um = um;
-            _sim = sim;
         }
 
-        public IActionResult Registro()
+        public IActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Registro(string username, string pwd, Usuario infouser)
-        {
-            infouser.Username = username;
-            infouser.Pwd = pwd;
-            if(ModelState.IsValid){
-                var IdentityUser = new IdentityUser(username);
-                var result =_um.CreateAsync(IdentityUser,pwd).Result;
-                if(result.Succeeded)
-                {
-                    _context.Add(infouser);
-                    _context.SaveChanges();
-                    return RedirectToAction("login");
-                }else{
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("usuario", error.Description);
-                    }
-                    var result2 =_um.DeleteAsync(IdentityUser).Result;
-                    return View();
-                }
-            }
-            return View();
-        }
 
-        public IActionResult Login()
+        public IActionResult Enviar(Usuario objFormulario)
         {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Login(string username, string pwd)
-        {
-            var result = _sim.PasswordSignInAsync(username,pwd,false,false).Result;
-            if(result.Succeeded)
-            {
-                return RedirectToAction("index","home");
-            }
-            ModelState.AddModelError("usuario","Datos incorrectos");
-            return View();
-        }
-        public async Task<IActionResult> logout()
-        {
-            await _sim.SignOutAsync();
-            return RedirectToAction("index","home");
+                objFormulario.Respuesta = "HEMOS PROCESADO SU SOLICITUD";
+                _context.Add(objFormulario);
+                _context.SaveChanges();
+                return View("index", objFormulario);
         }
     }
 }
