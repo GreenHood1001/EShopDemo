@@ -11,12 +11,65 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <img class="responsive" src="~/img/ofertas_banner.jpg">
+    <div class="container" style="height: 30vw;">
+        <div class="gallery js-flickity responsive" data-flickity-options='{ "cellAlign": "center", "contain": true }'>
+            <div class="gallery-cell"><img src='~/img/ofertas_banner.jpg' class="responsive"/></div>
+            <div class="gallery-cell"><img src='~/img/sale_banner.jpg' class="responsive"/></div>
+            <div class="gallery-cell"><img src='~/img/ofertas_banner.jpg' class="responsive"/></div>
         </div>
     </div>
-
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-12">
+                <table class="table">
+                    <thead class="carro" >
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>
+                                <img src='~/img/gasfi2.jpg' class="imgcarro" >
+                            </td>
+                            <td>El Rey de la Gasfiteria</td>
+                            <td>S/200.00</td>
+                            <td>1</td>
+                            <td>S/200.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>
+                                <img src='~/img/gasfi3.jpg' class="imgcarro" >
+                            </td>
+                            <td>Gasfiteria SAC</td>
+                            <td>S/150.00</td>
+                            <td>1</td>
+                            <td>S/150.00</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>
+                                <img src='~/img/gasfi2.jpg' class="imgcarro" >
+                            </td>
+                            <td>El Rey de la Gasfiteria</td>
+                            <td>S/300.00</td>
+                            <td>1</td>
+                            <td>S/300.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>   
+        </div>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

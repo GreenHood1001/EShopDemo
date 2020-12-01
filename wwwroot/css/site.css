@@ -101,3 +101,13 @@ body {
   border-radius: 5px;
   counter-increment: carousel-cell;
 }
+
+.carro{
+  background-color: #FF7C00;
+}
+
+.imgcarro{
+  width: 200px;
+  height: 100px;
+}
+
