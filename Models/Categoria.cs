@@ -18,8 +18,13 @@ namespace EShopDemo.Models
         [Column("mini_preview")]
         public byte[] Preview { get; set; }
 
+        [Column("banner")]
+        public byte[] Banner { get; set; }
+
         [NotMapped]
         public String imageData { get; set; }
+
+
 
 
     }

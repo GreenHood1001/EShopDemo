@@ -26,7 +26,20 @@ namespace EShopDemo.Controllers
         public IActionResult Index(Categoria categoria)
         {
             var listProductos=_context.Productos.ToList();
+            var listCategorias=_context.Categorias.ToList();
             var listMostrar= new List<Producto>();
+            dynamic model = new ExpandoObject();
+
+            for(int i=0; i<listCategorias.Count; i++){
+                Categoria cat= listCategorias[i];
+                if(cat.ID==categoria.ID){
+                    string imageBase64Data = Convert.ToBase64String(cat.Banner);
+                    string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
+                    ViewBag.imageDataURL = imageDataURL;
+                    model.Banner=imageDataURL;
+                }
+            }
+
             foreach(var prod in listProductos){
                 if(prod.catID==categoria.ID){
                     listMostrar.Add(prod);
@@ -40,7 +53,7 @@ namespace EShopDemo.Controllers
                 prod.imageData = ViewBag.imageDataURL;
             }
 
-            dynamic model = new ExpandoObject();
+            
             model.Mostrar = listMostrar;
             return View(model);
         }

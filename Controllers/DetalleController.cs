@@ -29,27 +29,29 @@ namespace EShopDemo.Controllers
             var listProductos=_context.Productos.ToList();
             var listUsuarios=_context.Usuarios.ToList();
             dynamic modelo= new ExpandoObject();
+            Producto prod= new Producto();
 
-            for(int i=0; i<listProductos.Count+1; i++){
-                Producto prod=listProductos[i];
+            for(int i=0; i<listProductos.Count; i++){
+                prod=listProductos[i];
                 if(prod.catID==producto.ID){
-                    modelo.Producto=prod;
                     break;
                 }               
             }
 
-            for(int i=0; i<listUsuarios.Count; i++){
+            for(int i=0; i<=listUsuarios.Count; i++){
                 Usuario user=listUsuarios[i];
-                if(user.Id==modelo.Producto.userID){
+                if(user.Id==prod.userID){
                     modelo.Usuario=user;
                     break;
                 }
             }
 
-            string imageBase64Data = Convert.ToBase64String(modelo.Producto.Picture);
+            string imageBase64Data = Convert.ToBase64String(prod.Picture);
             string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
             ViewBag.imageDataURL = imageDataURL;
-            modelo.Producto.imageData = ViewBag.imageDataURL;
+            prod.imageData = ViewBag.imageDataURL;
+
+            modelo.Producto=prod;
 
             return View(modelo);
         }
