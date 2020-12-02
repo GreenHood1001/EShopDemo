@@ -10,10 +10,6 @@ namespace EShopDemo.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
         public int Id { get; set; }
-        [Column("usu")]
-        public string Username { get; set; }
-        [Column("pwd")]
-        public string Pwd { get; set; }
         [Required(ErrorMessage="Por favor, ingrese el número de documento")]
         [Display( Name = "Número de documento")]
         [StringLength(8, MinimumLength=8, ErrorMessage="Debe ingresar un número minimo de 8 dígitos")]
@@ -58,5 +54,7 @@ namespace EShopDemo.Models
         [NotMapped]
         public String imgData { get; set; }
 
+        [NotMapped]
+        public String Respuesta { get; set; }
     }
 }

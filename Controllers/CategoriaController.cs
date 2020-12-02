@@ -23,20 +23,28 @@ namespace EShopDemo.Controllers
 
 
         [HttpGet]
-        public IActionResult Index(int id)
+        public IActionResult Index(Categoria categoria)
         {
-            
-            var listCategoria=_context.Categorias.ToList();
-            List<Categoria> listMostrar= new List<Categoria>();
-            foreach(var categoria in listCategoria){
-                if(id==categoria.ID){
-                    listMostrar.Add(categoria);
+            var listProductos=_context.Productos.ToList();
+            var listMostrar= new List<Producto>();
+            foreach(var prod in listProductos){
+                if(prod.catID==categoria.ID){
+                    listMostrar.Add(prod);
                 }
             }
-            dynamic modelo = new ExpandoObject();
-            modelo.Mostrar = listMostrar;
-            return View(modelo);
+
+            foreach(var prod in listMostrar){
+                string imageBase64Data = Convert.ToBase64String(prod.Picture);
+                string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
+                ViewBag.imageDataURL = imageDataURL;
+                prod.imageData = ViewBag.imageDataURL;
+            }
+
+            dynamic model = new ExpandoObject();
+            model.Mostrar = listMostrar;
+            return View(model);
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
