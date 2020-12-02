@@ -19,11 +19,11 @@
         <h3>Categorias</h3>
         
             <div class="main-carousel" data-flickity='{"groupCells": true, "cellAlign": "left", "contain": true }'>
-                @foreach (Categoria categoria in Model.Categorias)
+                @foreach (Categoria categoria in Model.Cat)
                 {
                         <div class="carousel-cell">
                             <form method="GET" action="Categoria" id="@categoria.Name"> 
-                                <input type="hidden" value="@categoria.ID" id="valor">  
+                                <input type="hidden" value="@categoria.ID" id="valor" asp-for="@categoria.ID">  
                                 <a href="javascript:{}" onclick="document.getElementById('@categoria.Name').submit();">
                                     <div class="card bg-dark text-white">
                                         <img class="card-img" src="@categoria.imageData" alt="@categoria.Name">
@@ -41,16 +41,16 @@
     <div>
         <h3>Recomendaciones</h3>
         <div class="main-carousel" data-flickity='{"groupCells": true, "cellAlign": "left", "contain": true }'>
-                @foreach (Usuario usuario in Model.Usuarios)
+                @foreach (Producto producto in Model.Productos)
                 {
                         <div class="carousel-cell">
-                            <form method="GET" action="Categoria" id="@usuario.Nombre"> 
-                                <input type="hidden" value="@usuario.Id" id="valor">  
-                                <a href="javascript:{}" onclick="document.getElementById('@usuario.Nombre').submit();">
+                            <form method="GET" action="Detalle" id="@producto.Name"> 
+                                <input type="hidden" value="@producto.ID" id="valor" asp-for="@producto.ID">  
+                                <a href="javascript:{}" onclick="document.getElementById('@producto.Name').submit();">
                                     <div class="card bg-dark text-white">
-                                        <img class="card-img" src="@usuario.imgData" alt="@usuario.Nombre">
+                                        <img class="card-img" src="@producto.imageData" alt="@producto.Name">
                                         <div class="card-img-overlay">
-                                            <h5 class="card-title">@usuario.Nombre</h5>
+                                            <h5 class="card-title">@producto.Name</h5>
                                         </div>
                                     </div>
                                 </a>

@@ -1,0 +1,85 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container" style="height: 30vw;">
+        <div class="gallery js-flickity responsive" data-flickity-options='{ "cellAlign": "center", "contain": true }'>
+            <div class="gallery-cell"><img src='~/img/ofertas_banner.jpg' class="responsive"/></div>
+            <div class="gallery-cell"><img src='~/img/sale_banner.jpg' class="responsive"/></div>
+            <div class="gallery-cell"><img src='~/img/ofertas_banner.jpg' class="responsive"/></div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+            <div class="col-md-12 col-12">
+                <table class=" table" class="responsive" >
+                    <thead class="carro" >
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col"></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>
+                                <img src='~/img/gasfi2.jpg' class="imgcarro" >
+                            </td>
+                            <td>El Rey de la Gasfiteria</td>
+                            <td>S/200.00</td>
+                            <td>1</td>
+                            <td>S/200.00</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-info">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>
+                                <img src='~/img/gasfi3.jpg' class="imgcarro" >
+                            </td>
+                            <td>Gasfiteria SAC</td>
+                            <td>S/150.00</td>
+                            <td>1</td>
+                            <td>S/150.00</td>
+                            <td>
+                               <button type="button" class="btn btn-outline-info">Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>
+                                <img src='~/img/gasfi2.jpg' class="imgcarro" >
+                            </td>
+                            <td>El Rey de la Gasfiteria</td>
+                            <td>S/300.00</td>
+                            <td>1</td>
+                            <td>S/300.00</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-info">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>   
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>

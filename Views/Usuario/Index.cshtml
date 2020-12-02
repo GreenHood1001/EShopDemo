@@ -1,20 +1,12 @@
 @model EShopDemo.Models.Usuario;
 @{
-    ViewBag.title = "Registro Usuario";
+    ViewBag.title = "Perfil Usuario";
 }
 
 <h1>@ViewBag.title</h1>
 <div class="container">
-    <form method="POST">
+    <form asp-controller="Usuario" asp-action="Enviar">
         <div asp-validation-summary="All"></div>
-        <div class="form-group">
-            <label>Nombre de usuario:</label>
-            <input class="form-control" id="username" name="username" placeholder="Usuario">
-        </div>
-        <div class="form-group">
-            <label>Contraseña:</label>
-            <input class="form-control" type="password" id="pwd" name="pwd" placeholder="Contraseña">
-        </div>
         <div class="form-group">
             <label>Dni:</label>
             <input class="form-control" asp-for="Dni" placeholder="Dni">
@@ -47,8 +39,9 @@
             <input class="form-control" asp-for="Celular" placeholder="Numero Celular">
         </div>
         <div class="text-center">
-            <input type="submit" class="btn btn-primary" value="Registrarme">
-    </form>
-            <input type="submit" class="btn btn-danger" value="Volver" onclick="location.href='@Url.Action("Index","Home")'">
+            <input type="submit" class="btn btn-primary" value="Enviar">
         </div>
+    </form>
+        <br/>
+        <td>@Html.DisplayTextFor(model => model.Respuesta)</td>  
 </div>
