@@ -9,27 +9,31 @@
 
 
 <div class="container">
+    <div class="row">
 
-    
-    <div class="row" style="margin-top: 40px;">
-    <div class="col-sm">
+        <img class="card-img-top img-fluid"" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@Model.Producto.imageData" data-holder-rendered="true" alt="Responsive image">
 
-        <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@Model.Producto.imageData" data-holder-rendered="true">
-
+        
     </div>
-    <div class="col-sm">
+
+    <div class="row">
+        <Strong>Descripcion: </Strong>
+    </div>
+
+    <div class="row">
         <p>@Model.Producto.Description</p>
     </div>
-    </div>
+    
 </div>
 
 <div class="container">
-    <div class="col-sm">
+    <div class="row">
         <strong>Trabajador:</strong>
     </div>
-</div>
-<div class="container">
-    <div class="col-sm">
+
+
+    <div class="row">
         <p>@Model.Usuario.Nombre @Model.Usuario.Apellido</p>
     </div>
+
 </div>
