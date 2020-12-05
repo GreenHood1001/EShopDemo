@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using EShopDemo.Models;
 using EShopDemo.Data;
 using System.Dynamic;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-
 
 namespace EShopDemo.Controllers
 {
@@ -16,11 +16,16 @@ namespace EShopDemo.Controllers
     {
         private readonly ILogger<DetalleController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public DetalleController(ILogger<DetalleController> logger, ApplicationDbContext context)
+
+        public DetalleController(ILogger<DetalleController> logger, ApplicationDbContext context, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -29,31 +34,62 @@ namespace EShopDemo.Controllers
             var listProductos=_context.Productos.ToList();
             var listUsuarios=_context.Usuarios.ToList();
             dynamic modelo= new ExpandoObject();
-            Producto prod= new Producto();
+            var prod= new List<Producto>();
 
             for(int i=0; i<listProductos.Count; i++){
-                prod=listProductos[i];
-                if(prod.catID==producto.ID){
+                prod.Add(listProductos[i]);
+                if(prod[0].ID==producto.ID){
                     break;
+                }else{
+                    prod.RemoveAt(0);
                 }               
             }
 
             for(int i=0; i<=listUsuarios.Count; i++){
-                Usuario user=listUsuarios[i];
-                if(user.Id==prod.userID){
-                    modelo.Usuario=user;
+                Usuario usu=listUsuarios[i];
+                if(usu.Id==prod[0].userID){
+                    modelo.Usuario=usu;
                     break;
                 }
             }
 
-            string imageBase64Data = Convert.ToBase64String(prod.Picture);
+            string imageBase64Data = Convert.ToBase64String(prod[0].Picture);
             string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
             ViewBag.imageDataURL = imageDataURL;
-            prod.imageData = ViewBag.imageDataURL;
+            prod[0].imageData = ViewBag.imageDataURL;
 
             modelo.Producto=prod;
 
+            if (_signInManager.IsSignedIn(User))
+            {  
+                string email = User.Identity.Name;
+                var user = _userManager.FindByEmailAsync(email);
+                var userId = _userManager.GetUserId(User);
+                modelo.ID=userId;
+            }else{
+                modelo.ID="null";
+            }     
+
             return View(modelo);
+        }
+
+        [HttpPost]
+        public IActionResult AddCart(Producto prod)
+        { 
+            if (_signInManager.IsSignedIn(User))
+            { 
+                Carrito carrito = new Carrito();
+                carrito.user_id = prod.Name;
+                carrito.producto_id = prod.ID;
+                _context.Add(carrito);
+                _context.SaveChanges();
+                Console.WriteLine("Producto añadido");
+                return RedirectToAction("Index","Carrito");
+            }
+            else
+            {
+                return RedirectToAction("Index","Home");
+            }
         }
 
     }

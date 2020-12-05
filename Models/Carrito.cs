@@ -11,7 +11,7 @@ namespace EShopDemo.Models
         public int ID { get; set; }
 
         [Column("user_id")]
-        public int user_id { get; set; }
+        public string user_id { get; set; }
 
         [Column("producto_id")]
         public int producto_id { get; set; }
