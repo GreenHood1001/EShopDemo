@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" media="screen">
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
 </head>
 <body>
     <header style="background-color:#FF7C00;">
@@ -25,14 +33,17 @@
                         <partial name="_LoginPartial" />
                         <ul class="navbar-nav flex-grow-1">
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="btn btn-outline-orange nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                                <a class="btn btn-outline-orange nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-controller="Carrito" asp-action="Index">Carrito de Compras</a>
+                                <a class="btn btn-outline-orange nav-link text-light" asp-area="" asp-controller="Producto" asp-action="Index">Catalogo</a>
                             </li>
+                          <li class="nav-item">
+                            <a class="btn btn-outline-orange nav-link text-light" asp-controller="Carrito" asp-action="Index">Carrito de Compras</a>
+                         </li>
                         <partial name="_MenuPartial" />
                         </ul>
 
@@ -59,4 +70,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
+<br/><br/><br/><br/><br/>
 </html>
