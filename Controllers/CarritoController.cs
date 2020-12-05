@@ -66,7 +66,7 @@ namespace EShopDemo.Controllers
             }
             else
             {
-                return RedirectToAction("Index","Home");
+                return LocalRedirect("/Identity/Account/Login");
             }
         }
 
@@ -97,7 +97,7 @@ namespace EShopDemo.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index","Carrito");
             }else{
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index","Carrito");
             }
             
         }
