@@ -34,5 +34,10 @@ private readonly ILogger<UsuarioController> _logger;
                 _context.SaveChanges();
                 return View("index", objFormulario);
         }
+
+        public IActionResult Information()
+        {
+            return View();
+        }
     }
 }
