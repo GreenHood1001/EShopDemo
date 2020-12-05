@@ -64,23 +64,25 @@ namespace EShopDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddCart(Producto prod)
+        public IActionResult AddCart(Producto producto)
         { 
             if (_signInManager.IsSignedIn(User))
             { 
                 var listProductos= _context.Productos.ToList();
-
-                if(prod.ID<=listProductos.Count){
+                if(producto.ID<=listProductos.Count)
+                {
                     Carrito carrito = new Carrito();
                     string email = User.Identity.Name;
                     var user = _userManager.FindByEmailAsync(email);
                     carrito.user_id = _userManager.GetUserId(User);
-                    carrito.producto_id = prod.ID;
+                    carrito.producto_id = producto.ID;
                     _context.Add(carrito);
                     _context.SaveChanges();
-                    Console.WriteLine("Producto añadido");
+                    Console.WriteLine("Item añadido");
                     return RedirectToAction("Index","Carrito");
-                }else{
+                }
+                else
+                {
                     return RedirectToAction("Index","Home");
                 }
             }

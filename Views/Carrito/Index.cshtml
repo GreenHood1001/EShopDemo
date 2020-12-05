@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Home Page";
+    var id=1;
 }
 
 <!DOCTYPE html>
@@ -28,52 +29,29 @@
                             <th scope="col">Imagen</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Precio</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Subtotal</th>
-                            <th scope="col"></th>
                             
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>
-                                <img src='~/img/gasfi2.jpg' class="imgcarro" >
-                            </td>
-                            <td>El Rey de la Gasfiteria</td>
-                            <td>S/200.00</td>
-                            <td>1</td>
-                            <td>S/200.00</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-info">Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>
-                                <img src='~/img/gasfi3.jpg' class="imgcarro" >
-                            </td>
-                            <td>Gasfiteria SAC</td>
-                            <td>S/150.00</td>
-                            <td>1</td>
-                            <td>S/150.00</td>
-                            <td>
-                               <button type="button" class="btn btn-outline-info">Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>
-                                <img src='~/img/gasfi2.jpg' class="imgcarro" >
-                            </td>
-                            <td>El Rey de la Gasfiteria</td>
-                            <td>S/300.00</td>
-                            <td>1</td>
-                            <td>S/300.00</td>
-                            <td>
-                                <button type="button" class="btn btn-outline-info">Eliminar</button>
-                            </td>
-                        </tr>
+                        @foreach (Producto producto in Model.Mostrar)
+                        {                   
+                            <tr>
+                                <th scope="row">@id</th>
+                                <td>
+                                    <img src='@producto.imageData' class="imgcarro" >
+                                </td>
+                                <td>@producto.Name</td>
+                                <td>@producto.Price</td>
+                                <!-- Falta acomodar el total, por temas de simplicidad he borrado temporalmente el conteo de cantidades -->
+                                <td>
+                                    <form method="POST" asp-controller="Carrito" asp-action="Delete">
+                                        <input type="hidden" value="@producto.ID" asp-for="@producto.ID">
+                                        <button type="submit" class="btn btn-outline-info">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            id++;
+                        }
                     </tbody>
                 </table>
             </div>   

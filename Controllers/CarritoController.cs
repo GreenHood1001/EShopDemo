@@ -39,6 +39,7 @@ namespace EShopDemo.Controllers
                 var listProductos=_context.Productos.ToList();
                 var listCarro=_context.Carritos.ToList();
                 var listMostrar= new List<Producto>();
+                int total = 0;
                 Producto prod= new Producto();
                 dynamic model = new ExpandoObject();
 
@@ -51,6 +52,7 @@ namespace EShopDemo.Controllers
                                 string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
                                 ViewBag.imageDataURL = imageDataURL;
                                 prod.imageData = ViewBag.imageDataURL;
+                                total+=prod.Price;
                                 listMostrar.Add(prod);
                                 break;
                             }
@@ -59,12 +61,45 @@ namespace EShopDemo.Controllers
                 }
 
                 model.Mostrar = listMostrar;
+                model.Total = total;
                 return View(model);
             }
             else
             {
                 return RedirectToAction("Index","Home");
             }
+        }
+
+        public IActionResult Delete(Producto producto){
+            var listCarrito = _context.Carritos.ToList();
+            var listProdUser = new List<Carrito>();
+            string email = User.Identity.Name;
+            var user = _userManager.FindByEmailAsync(email);
+            var userId = _userManager.GetUserId(User);
+            var carritoID=0;
+            bool prodExist = false;
+
+            for(int i=0; i<listCarrito.Count; i++){
+                Carrito temp = listCarrito[i];
+                if(userId==temp.user_id){
+                    listProdUser.Add(temp);
+                    //verifica si el ID de producto existe en la tabla
+                    if(producto.ID==temp.producto_id){
+                        prodExist=true;
+                        carritoID=temp.ID;
+                    }
+                }
+            }
+
+            if(prodExist==true){
+                Carrito carrito=_context.Carritos.Find(carritoID);
+                _context.Carritos.Remove(carrito);
+                _context.SaveChanges();
+                return RedirectToAction("Index","Carrito");
+            }else{
+                return RedirectToAction("Index","Home");
+            }
+            
         }
 
     }
