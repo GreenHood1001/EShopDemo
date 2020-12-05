@@ -58,17 +58,7 @@ namespace EShopDemo.Controllers
             ViewBag.imageDataURL = imageDataURL;
             prod[0].imageData = ViewBag.imageDataURL;
 
-            modelo.Producto=prod;
-
-            if (_signInManager.IsSignedIn(User))
-            {  
-                string email = User.Identity.Name;
-                var user = _userManager.FindByEmailAsync(email);
-                var userId = _userManager.GetUserId(User);
-                modelo.ID=userId;
-            }else{
-                modelo.ID="null";
-            }     
+            modelo.Producto=prod;  
 
             return View(modelo);
         }
@@ -78,13 +68,21 @@ namespace EShopDemo.Controllers
         { 
             if (_signInManager.IsSignedIn(User))
             { 
-                Carrito carrito = new Carrito();
-                carrito.user_id = prod.Name;
-                carrito.producto_id = prod.ID;
-                _context.Add(carrito);
-                _context.SaveChanges();
-                Console.WriteLine("Producto añadido");
-                return RedirectToAction("Index","Carrito");
+                var listProductos= _context.Productos.ToList();
+
+                if(prod.ID<=listProductos.Count){
+                    Carrito carrito = new Carrito();
+                    string email = User.Identity.Name;
+                    var user = _userManager.FindByEmailAsync(email);
+                    carrito.user_id = _userManager.GetUserId(User);
+                    carrito.producto_id = prod.ID;
+                    _context.Add(carrito);
+                    _context.SaveChanges();
+                    Console.WriteLine("Producto añadido");
+                    return RedirectToAction("Index","Carrito");
+                }else{
+                    return RedirectToAction("Index","Home");
+                }
             }
             else
             {

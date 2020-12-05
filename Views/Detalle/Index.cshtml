@@ -23,7 +23,6 @@
                 <div>
                 <form method="POST" asp-controller="Detalle" asp-action="AddCart">
                     <input type="hidden" value="@producto.ID" asp-for="@producto.ID">
-                    <input type="hidden" value="@Model.ID" asp-for="@producto.Name">
                     <!-- Input mandando usuario -->             
                     <button type="submit">CONTRATAR SERVICIO</button>              
                 </form>
