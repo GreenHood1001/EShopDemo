@@ -20,5 +20,7 @@ namespace EShopDemo.Data
 
         public DbSet<EShopDemo.Models.Producto> Productos { get; set; }
 
+        public DbSet<EShopDemo.Models.Carrito> Carritos { get; set; }
+
     }
 }

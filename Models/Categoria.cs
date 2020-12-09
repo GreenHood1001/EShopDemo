@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EShopDemo.Models
@@ -18,8 +16,13 @@ namespace EShopDemo.Models
         [Column("mini_preview")]
         public byte[] Preview { get; set; }
 
+        [Column("banner")]
+        public byte[] Banner { get; set; }
+
         [NotMapped]
         public String imageData { get; set; }
+
+
 
 
     }

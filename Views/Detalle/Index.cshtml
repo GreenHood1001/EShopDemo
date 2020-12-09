@@ -2,34 +2,33 @@
 
 @{
     ViewData["Title"] = "@Model.Producto.Name";
+    
 }
 
- <!--TO Jalar imagenes de la base de datos dependiendo de producto con su descripcion -->
-
-
-
-<div class="container">
-
-    
-    <div class="row" style="margin-top: 40px;">
-    <div class="col-sm">
-
-        <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@Model.Producto.imageData" data-holder-rendered="true">
-
+<div class="container-fluid">
+    <div class="row">
+        @foreach (Producto producto in Model.Producto)
+        {
+            <div class="col-md-5 col-12">
+                <div>
+                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@producto.imageData" data-holder-rendered="true">
+                </div>
+            </div>
+            <div class="col-md-7 col-12">
+                <div><p class="detallesubtitulos">@producto.Name</p></div>
+                <div><p>@producto.Description</p></div>
+                <div><p class="detallesubtitulos">Trabajador:</p>
+                <p>@Model.Usuario.Nombre @Model.Usuario.Apellido</p></div>
+                <!-- Button trigger modal -->
+                <div>
+                <form method="POST" asp-controller="Detalle" asp-action="AddCart">
+                    <input type="hidden" value="@producto.ID" asp-for="@producto.ID">
+                    <!-- Input mandando usuario -->             
+                    <button type="submit" class="btn btn-outline-info">CONTRATAR SERVICIO</button>              
+                </form>
+                </div>
+            </div>
+        }
     </div>
-    <div class="col-sm">
-        <p>@Model.Producto.Description</p>
-    </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="col-sm">
-        <strong>Trabajador:</strong>
-    </div>
-</div>
-<div class="container">
-    <div class="col-sm">
-        <p>@Model.Usuario.Nombre @Model.Usuario.Apellido</p>
-    </div>
 </div>

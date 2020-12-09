@@ -19,6 +19,52 @@ namespace EShopDemo.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            modelBuilder.Entity("EShopDemo.Models.Carrito", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("producto_id")
+                        .HasColumnName("producto_id")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("user_id")
+                        .HasColumnName("user_id")
+                        .HasColumnType("text");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("t_carrito");
+                });
+
+            modelBuilder.Entity("EShopDemo.Models.Categoria", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<byte[]>("Banner")
+                        .HasColumnName("banner")
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("name")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Preview")
+                        .HasColumnName("mini_preview")
+                        .HasColumnType("bytea");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("t_categoria");
+                });
+
             modelBuilder.Entity("EShopDemo.Models.Contacto", b =>
                 {
                     b.Property<int>("ID")
@@ -56,6 +102,97 @@ namespace EShopDemo.Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("t_contacto");
+                });
+
+            modelBuilder.Entity("EShopDemo.Models.Producto", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnName("descripcion")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("titulo")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Picture")
+                        .HasColumnName("image")
+                        .HasColumnType("bytea");
+
+                    b.Property<int>("Price")
+                        .HasColumnName("precio")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("catID")
+                        .HasColumnName("id_categoria")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("userID")
+                        .HasColumnName("id_user")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("t_producto");
+                });
+
+            modelBuilder.Entity("EShopDemo.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Apellido")
+                        .IsRequired()
+                        .HasColumnName("ape")
+                        .HasColumnType("character varying(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<string>("Celular")
+                        .IsRequired()
+                        .HasColumnName("celu")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Dni")
+                        .IsRequired()
+                        .HasColumnName("dni")
+                        .HasColumnType("character varying(8)")
+                        .HasMaxLength(8);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnName("email")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("FecNac")
+                        .IsRequired()
+                        .HasColumnName("fec")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnName("nom")
+                        .HasColumnType("character varying(50)")
+                        .HasMaxLength(50);
+
+                    b.Property<byte[]>("Picture")
+                        .HasColumnName("foto")
+                        .HasColumnType("bytea");
+
+                    b.Property<char>("Sexo")
+                        .HasColumnName("sex")
+                        .HasColumnType("character(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("t_usuario");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
