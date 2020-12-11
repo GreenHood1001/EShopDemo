@@ -4,50 +4,63 @@
     ViewData["Title"] = "Contacto";
 }
 
-<div class="row">
-    <div class="col-md-4">  
-        <h1 class="display-4">Contacto</h1>
-        <form asp-controller="Contacto" asp-action="Create">
+<div class="contacto">
+<div class="container-fluid">
+<div class="row"> 
+  <div class="ejeZcontacto">
+  <div class="contacto-content">
+        <div class="contacto-title"><h2>Formulario de Contacto</h2><hr></div>
+        <div class="formulario-content">
+        <form id="formulario" asp-controller="Contacto" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <center>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input id="user" asp-for="Name" class="form-control" placeholder="Ingresa tu Nombre"/>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>    
 
             <div class="form-group">
                 <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
+                <input id="user" asp-for="LastName" class="form-control" placeholder="Ingresa tu Apellido"/>
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>               
                    
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input id="email" asp-for="Email" class="form-control" placeholder="Ingresa tu Correo Electronico"/>
             </div>               
 
             <div class="form-group">
                 <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
+                <input id="user" asp-for="Phone" class="form-control" placeholder="Ingresa tu Número Telefonico"/>
             </div>               
 
             <div class="form-group">
                 <label asp-for="Subject" class="control-label"></label>
-                <input asp-for="Subject" class="form-control" />
+                <input id="user" asp-for="Subject" class="form-control" placeholder="Ingresa un Asunto"/>
             </div>    
 
             <div class="form-group">
                 <label asp-for="Message" class="control-label"></label>
-                <textarea asp-for="Message" class="form-control" /></textarea>
+                <textarea id="message" asp-for="Message" class="form-control"></textarea>
             </div>                
 
             <div class="form-group">
-                 <button type="submit" class="btn btn-primary">Registrar</button> 
+                 <button type="submit" class="send">Registrar</button> 
             </div>                
 
+            <div class="mensaje-form">
+            <p>Escribenos un mensaje, con gusto tendras una respuesta de parte de nosotros en muy poco tiempo.</p>
+            </div>
+            </center>
         </form>
+        </div>
             
         <td>@Html.DisplayTextFor(model => model.Response)</td>    
     
     </div>
+    </div>
+</div>
+</div>
 </div>

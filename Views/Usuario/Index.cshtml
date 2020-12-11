@@ -3,8 +3,9 @@
     ViewBag.title = "Perfil Usuario";
 }
 
-<h1>@ViewBag.title</h1>
+
 <div class="container">
+    <h1>@ViewBag.title</h1>
     <form asp-controller="Usuario" asp-action="Enviar">
         <div asp-validation-summary="All"></div>
         <div class="form-group">
