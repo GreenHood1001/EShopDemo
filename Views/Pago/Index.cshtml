@@ -1,0 +1,116 @@
+@model dynamic
+
+
+@{
+    ViewBag.title = "Total a pagar";
+    
+}
+
+<div class="container">
+    <h1 class="text-center"> @ViewBag.title</h1>
+    <div class="row mx-auto p-3 mb-2 bg-secondary text-white " >
+        <!--Jalar Precio total -->
+         <h1 class="text-center">S/. @Model.Total</h1>
+        
+      
+    </div>
+
+    <!--TO Implementar ecko lightbox -->
+    <div class="row text-center mx-auto">
+
+        <!-- Button trigger modal -->
+      <div class="mx-auto">
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
+          Detalle del pago
+        </button>
+      </div>
+    
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Detalle del pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- To mostar detalle de la compra -->
+        @foreach (Producto producto in Model.Mostrar)
+        {
+            <h5>Nombre: @producto.Name </h5>
+            <h5>Precio: @producto.Price </h5>
+        }
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-warning">Entendido</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+  <div class="payment">
+        <form>
+            <div class="form-group owner">
+                <label for="owner">Nombre del Propietario</label>
+                <input type="text" class="form-control" id="owner">
+            </div>
+            <div class="form-group CVV">
+                <label for="cvv">CVV</label>
+                <input type="text" class="form-control" id="cvv">
+            </div>
+            <div class="form-group" id="card-number-field">
+                <label for="cardNumber">Numero de tarjeta</label>
+                <input type="text" class="form-control" id="cardNumber">
+            </div>
+            <div class="form-group" id="expiration-date">
+                <label>Fecha de Expiración</label>
+                <select>
+                    <option value="01">Enero</option>
+                    <option value="02">Febrero </option>
+                    <option value="03">Marzo</option>
+                    <option value="04">Abril</option>
+                    <option value="05">Mayo</option>
+                    <option value="06">Junio</option>
+                    <option value="07">Julio</option>
+                    <option value="08">Agostp</option>
+                    <option value="09">Setiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembrer</option>
+                    <option value="12">Diciembre</option>
+                </select>
+                <select>
+                    <option value="16"> 2019</option>
+                    <option value="17"> 2020</option>
+                    <option value="18"> 2021</option>
+                    <option value="19"> 2022</option>
+                    <option value="20"> 2023</option>
+                    <option value="21"> 2024</option>
+                </select>
+            </div>
+            <!-- Colocar varias tipos de tarjetas -->
+            
+        </form>
+    </div>
+</div>
+
+  <div class="row text-center mx-auto">
+
+        <!-- Button trigger modal -->
+      <div class="mx-auto">
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
+          Proceder pago
+        </button>
+      </div>
+    </div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
