@@ -543,6 +543,7 @@ body {
   background-color: #FF7C00;
 }
 
+
 .imgcarro{
   width: 150px;
   height: 100px;
@@ -604,8 +605,7 @@ body {
 		td:nth-of-type(1):before { content: "Imagen"; }
 		td:nth-of-type(2):before { content: "Servicio"; }
     td:nth-of-type(3):before { content: "Precio"; }
-		td:nth-of-type(4):before { content: "Cantidad"; }
-		td:nth-of-type(5):before { content: "Subtotal"; }
+		td:nth-of-type(4):before { content: "Estado";}
 	}
 
 .detallesubtitulos{
