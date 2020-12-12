@@ -34,7 +34,7 @@
             <div class="main-carousel" data-flickity='{"groupCells": true, "cellAlign": "left", "contain": true }'>
                 @foreach (Categoria categoria in Model.Cat)
                 {
-                        <div class="carousel-cell">
+                        <div class="carousel-cell col-sm-6">
                             <form method="GET" action="Categoria" id="@categoria.Name"> 
                                 <input type="hidden" value="@categoria.ID" id="valor" asp-for="@categoria.ID">  
                                 <a href="javascript:{}" onclick="document.getElementById('@categoria.Name').submit();">
@@ -56,7 +56,7 @@
         <div class="main-carousel" data-flickity='{"groupCells": true, "cellAlign": "left", "contain": true }'>
                 @foreach (Producto producto in Model.Productos)
                 {
-                        <div class="carousel-cell">
+                        <div class="carousel-cell col-md-6">
                             <form method="GET" action="Detalle" id="@producto.Name"> 
                                 <input type="hidden" value="@producto.ID" id="valor" asp-for="@producto.ID">  
                                 <a href="javascript:{}" onclick="document.getElementById('@producto.Name').submit();">
