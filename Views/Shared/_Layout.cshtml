@@ -6,51 +6,38 @@
     <title>EShopDemo</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" media="screen">
+    <link rel="shortcut icon" href="img/alexcgdesign.png" type="image/x-icon">
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-body {font-family: "Times New Roman", Georgia, Serif;}
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display";
-  letter-spacing: 5px;
-}
-</style>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Red+Hat+Text:400,500,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header style="background-color:#FF7C00;">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-            <div class="container">
-                <div class="col-md-2">
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/eShop_logo.png"></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <div class="col-md-10">
-                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" style="width: 100%;">
+    <div class="social-bar">
+        <a href="https://www.facebook.com/" class="icon icon-facebook" target="_blank"></a>
+        <a href="https://twitter.com/" class="icon icon-twitter" target="_blank"></a>
+        <a href="https://www.youtube.com/" class="icon icon-youtube" target="_blank"></a>
+        <a href="https://www.instagram.com/" class="icon icon-instagram" target="_blank"></a>
+    </div>
 
-                        <partial name="_LoginPartial" />
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="btn btn-outline-orange nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="btn btn-outline-orange nav-link text-light" asp-controller="Carrito" asp-action="Index">Carrito de Compras</a>
-                            </li>
-                        <partial name="_MenuPartial" />
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
+    <header id="header">
+    <div class="container d-flex align-items-center">
+        <div class="logo mr-auto">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/eShop_logo.png"></a>
+        </div>
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-controller="Contacto" asp-action="Create">Contacto</a></li> 
+                <li><a asp-controller="Carrito" asp-action="Index">Carrito de Compras</a></li>
+                <partial name="_LoginPartial" />
+            </ul>
         </nav>
+    </div>
     </header>
-    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
 
     <footer class="footer">
         <div class="container">
@@ -64,5 +51,4 @@ h1, h2, h3, h4, h5, h6 {
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
-<br/><br/><br/><br/><br/>
 </html>

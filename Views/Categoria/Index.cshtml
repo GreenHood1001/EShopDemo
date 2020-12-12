@@ -9,26 +9,32 @@
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <div class="container-fluid" style="margin-bottom: 4vw;">
-        <div class="row">
-            <img class="responsive" style="border-radius: 8px;" src="@Model.Banner">
-        </div>
+
+    <div class="img-header">
+     <div class="welcome">
+       <h1>Bienvenidos a nuestras categorias</h1>
+       <hr>
+       <p>Aquí podrás encontrar los mejores servicios</p>
+       <button id="abajo">Novedades</button>
+     </div>       
     </div>
+</head>
+<br><br><br>
+<body>
     <div class="container">
         <div class="row">
           @foreach (Producto producto in Model.Mostrar)
           {
-            <div class="col-md-3 col-6">
+            <div class="galeria-port col-md-3 col-6">
               <form method="GET" action="Detalle" id="@producto.Name"> 
                 <input type="hidden" value="@producto.ID" id="valor" asp-for="@producto.ID">  
                 <a href="javascript:{}" onclick="document.getElementById('@producto.Name').submit();">
-                  <div class="card mb-4 shadow-sm">
+                  <div class="imagen-port card mb-4 shadow-sm">
                     <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@producto.imageData" data-holder-rendered="true">
-                    <div class="card-body">
-                      <h4>@producto.Name</h4>
-                      <p class="card-text">@producto.Description</p>
+                    <div class="hover-galeria card-body">
+                      <img src="img/icono1.png" alt="">
+                      <p>@producto.Name</p>
+                      <p>@producto.Description</p>
                     </div>
                   </div>
                 </a>
