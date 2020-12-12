@@ -455,7 +455,7 @@ body {
   font-weight: bolder;
   font-size: x-large;
 }
-<<<<<<< HEAD
+
 /* Pago de tarjeta*/
 .creditCardForm {
   max-width: 700px;
@@ -537,7 +537,7 @@ body {
       text-align: left;
   }
 }
-=======
+
 
 
 /** Contacto **/
@@ -545,7 +545,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background: url(../img/footer.jpg);
+  background: url(../img/img-1.jpg);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -693,4 +693,3 @@ body {
   .contacto .contacto-text{width: 100%; padding: 0px 30px;}
   .contacto .contacto-text p{font-size: 17px;}
 }
->>>>>>> origin/main
