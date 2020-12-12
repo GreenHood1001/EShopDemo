@@ -16,6 +16,13 @@ namespace EShopDemo.Models
 
         public String imageData { get; set; }
 
+        public String NombrePropietario { get; set; }
+        public int CVV { get; set; }
+        public int NumeroTarjeta { get; set; }
+        public int mesTarjeta { get; set; }
+        public int añoTarjeta { get; set; }
+
+
 
 
     }
