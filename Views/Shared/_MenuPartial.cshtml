@@ -5,14 +5,14 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-        <a class="nav-link text-light" asp-area="" asp-controller="Contacto" asp-action="Index">Lista Contactos</a>
+        <a class="btn btn-outline-orange nav-link text-light" asp-area="" asp-controller="Contacto" asp-action="Index">Lista Contactos</a>
     </li>  
 }
 else{
     <li class="nav-item">
-        <a class="nav-link text-light" asp-area="" asp-controller="Contacto" asp-action="Create">Contacto</a>
+        <a class="btn btn-outline-orange nav-link text-light" asp-area="" asp-controller="Contacto" asp-action="Create">Contacto</a>
     </li> 
     <li class="nav-item">
-        <a class="nav-link text-light" asp-area="" asp-controller="Usuario" asp-action="Index">Profile</a>
+        <a class="btn btn-outline-orange nav-link text-light" asp-area="" asp-controller="Usuario" asp-action="Index">Profile</a>
     </li> 
 }
