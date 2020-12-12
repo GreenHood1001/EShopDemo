@@ -1,0 +1,250 @@
+/** Contacto **/
+.contacto1{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../img/footer.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+  .contacto1 .deg-contacto1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+  }
+  .contacto1 .ejeZcontacto1{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .contacto1 .contacto1-content{
+    padding-top: 100px;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 100px;
+  }
+  .contacto1 .contacto1-content .contacto1-title{
+    width: 50%;
+    margin: auto;
+    border:2px solid #fff;
+    padding:15px;
+  }
+  .contacto1 .contacto1-content .contacto1-title h2{
+    font-size: 35px;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .contacto1 .contacto1-content .contacto1-title hr{
+    background: #fff;
+    height: 2px;
+    width: 80%;
+    margin:auto;
+  }
+  .contacto1 .formulario-content{
+    width: 60%;
+    margin: 50px auto;
+    background: #fff;
+    padding:30px;
+    border-radius: 50px;
+    border: 1.5px solid var(--red);
+  }
+  .contacto1 .formulario-content #formulario{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .contacto1 .formulario-content #formulario label{
+    font-size: 20px;
+    text-align: center;
+    color: var(--black);
+    margin: 30px 0px 10px 0px;
+  }
+  .contacto1 .formulario-content #formulario input{
+    width: 90%;
+    height: 40px;
+    margin:auto;
+    border-radius: 24px;
+    outline: none;
+    border:1.5px solid var(--red);
+    text-align: center;
+    font-size: 18px;
+    color: var(--black);
+  }
+  .contacto1 .formulario-content #formulario textarea{
+    width: 90%;
+    height: 200px;
+    margin:auto;
+    padding: 20px;
+    border-radius: 24px;
+    outline: none;
+    border:1.5px solid var(--red);
+    font-size: 15px;
+    color: var(--black);
+  }
+  .contacto1 .formulario-content #formulario .send{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .contacto1 .formulario-content #formulario button{
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    background: var(--red);
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  .contacto1 .formulario-content #formulario button:hover{
+    background: var(--blue);
+  }
+  .contacto1 .formulario-content #formulario .mensaje-form{
+    width: 100%;
+    margin:auto;
+    padding:20px;
+  }
+  .contacto1 .formulario-content #formulario .mensaje-form p{
+    font-size:19px;
+    color: var(--black);
+    line-height: 35px;
+  }
+  .contacto1 .contacto1-text{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background:rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #fff;
+  }
+  .contacto1 .contacto1-text p{
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  @media only screen and (max-width:900px){
+    .contacto1 .formulario-content{width: 85%; padding:20px;}
+    .contacto1 .formulario-content #formulario input{width: 100%;}
+    .contacto1 .formulario-content #formulario textarea{width: 100%;}
+  }
+  @media only screen and (max-width:590px){
+    .contacto1 .formulario-content{width: 95%; padding:20px;}
+    .contacto1 .formulario-content #formulario label{font-size: 17px;}
+    .contacto1 .formulario-content #formulario input{width: 100%; font-size: 17px;}
+    .contacto1 .formulario-content #formulario textarea{width: 100%;}
+    .contacto1 .formulario-content #formulario .mensaje-form p{font-size: 17px;}
+    .contacto1 .contacto1-text{width: 100%; padding: 0px 30px;}
+    .contacto1 .contacto1-text p{font-size: 17px;}
+  }
+
+/*--------------------------------------------------------------
+# Font - fb, tw , yt, ist
+--------------------------------------------------------------*/
+
+  @font-face {
+    font-family: 'icomoon';
+    src:  url('fonts/icomoon.eot?i226ha');
+    src:  url('fonts/icomoon.eot?i226ha#iefix') format('embedded-opentype'),
+      url('fonts/icomoon.ttf?i226ha') format('truetype'),
+      url('fonts/icomoon.woff?i226ha') format('woff'),
+      url('fonts/icomoon.svg?i226ha#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-facebook:before {
+    content: "\ea90";
+  }
+  .icon-instagram:before {
+    content: "\ea92";
+  }
+  .icon-twitter:before {
+    content: "\ea96";
+  }
+  .icon-youtube:before {
+    content: "\ea9d";
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  .social-bar {
+    position: fixed;
+    right: 0;
+    top: 35%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 100;
+  }
+  
+  .icon {
+    color: white;
+    text-decoration: none;
+    padding: .7rem;
+    display: flex;
+    transition: all .5s;
+  }
+  
+  .icon-facebook {
+    background: #2E406E;
+  }
+  
+  .icon-twitter {
+    background: #339DC5;
+  }
+  
+  .icon-youtube {
+    background: #E83028;
+  }
+  
+  .icon-instagram {
+    background: #3F60A5;
+  }
+  
+  .icon:first-child {
+    border-radius: 1rem 0 0 0;
+  }
+  
+  .icon:last-child {
+    border-radius: 0 0 0 1rem;
+  }
+  
+  .icon:hover {
+    padding-right: 3rem;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+  }
+  

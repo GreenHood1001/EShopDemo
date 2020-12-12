@@ -4,31 +4,36 @@
     ViewData["Title"] = "@Model.Producto.Name";
     
 }
-
-<div class="container-fluid">
-    <div class="row">
-        @foreach (Producto producto in Model.Producto)
-        {
-            <div class="col-md-5 col-12">
-                <div>
-                    <img class="card-img-top" alt="Thumbnail [100%x225]" style="height: 225px;width: 100%; display: block;" src="@producto.imageData" data-holder-rendered="true">
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-12 col-md-offset-2">
+            <div class="card mb-3" style="max-width: 100%;">
+                <div class="row">
+                    @foreach (Producto producto in Model.Producto){
+                    <div class="col-md-8">
+                    <img height="100%" width="100%" alt="Thumbnail [100%x225]" src="@producto.imageData" data-holder-rendered="true">
+                    </div>
+                    <div class="col-md-4">
+                    <div class="card-body">
+                        <h2 class="card-title">Información de la Empresa</h2>
+                        <h4 class="card-text">Nombre:</h4><p class="card-title">@producto.Name</p>
+                        <h4 class="card-title">Descripción:</h4><p class="card-text">@producto.Description</p>
+                        <h4 class="card-text">Empleado:</h4><p class="card-text">@Model.Usuario.Nombre @Model.Usuario.Apellido</p>
+                        <h4 class="card-text">¿Desea Contratar Nuestro Servicio?</h4>
+                        <form method="POST" asp-controller="Detalle" asp-action="AddCart">
+                            <input type="hidden" value="@producto.ID" asp-for="@producto.ID">
+                            <!-- Input mandando usuario -->             
+                            <button type="submit" class="btn btn-outline-info">Click Aquí</button>              
+                        </form>
+                    </div>
+                    </div>
+                    }
                 </div>
             </div>
-            <div class="col-md-7 col-12">
-                <div><p class="detallesubtitulos">@producto.Name</p></div>
-                <div><p>@producto.Description</p></div>
-                <div><p class="detallesubtitulos">Trabajador:</p>
-                <p>@Model.Usuario.Nombre @Model.Usuario.Apellido</p></div>
-                <!-- Button trigger modal -->
-                <div>
-                <form method="POST" asp-controller="Detalle" asp-action="AddCart">
-                    <input type="hidden" value="@producto.ID" asp-for="@producto.ID">
-                    <!-- Input mandando usuario -->             
-                    <button type="submit" class="btn btn-outline-info">CONTRATAR SERVICIO</button>              
-                </form>
-                </div>
-            </div>
-        }
+        </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
 </div>
