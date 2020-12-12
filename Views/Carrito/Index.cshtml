@@ -52,9 +52,20 @@
                             </tr>
                             id++;
                         }
+
+                        if(id>1){
+                            <!-- Acomodar un espacio donde poner el valor Model.Total junto a un boton que redirecciona al pago-->                           
+                        }
                     </tbody>
                 </table>
             </div>   
+        <div class="mx-auto">
+            <a asp-controller="Pago" asp-action="Index"><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
+          Proceder pago
+        </button></a>
+        
+      </div>
+        
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
