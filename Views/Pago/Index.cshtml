@@ -1,0 +1,109 @@
+@model dynamic
+
+
+@{
+    ViewBag.title = "Total a pagar";
+    int mes=1,anio=2020, total=0;
+    Pago pago = @Model.Pago;
+}
+
+<div class="container">
+    <h1 class="text-center"> @ViewBag.title</h1>
+    <div class="row mx-auto p-3 mb-2 bg-secondary text-white " >
+        <!--Jalar Precio total -->
+         <h1 class="text-center">S/. @Model.Total</h1>
+        
+      
+    </div>
+
+    <!--TO Implementar ecko lightbox -->
+    <div class="row text-center mx-auto">
+
+        <!-- Button trigger modal -->
+      <div class="mx-auto">
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
+          Detalle del pago
+        </button>
+      </div>
+    
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Detalle del pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- To mostar detalle de la compra -->
+        @foreach (Producto producto in Model.Mostrar)
+        {
+            <h5>Nombre: @producto.Name </h5>
+            <h5>Precio: @producto.Price </h5>
+            total= total+ @producto.Price;
+            @pago.Price = total;
+        }
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-warning">Entendido</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+  <div class="payment">
+        <form asp-controller="Pago" asp-action="Confirmacion">
+            <div class="form-group owner">
+                <label for="owner">Nombre del Propietario</label>
+                <input type="text" class="form-control" id="owner" asp-for="@pago.Name" required>
+            </div>
+            <div class="form-group CVV">
+                <label for="cvv">CVV</label>
+                <input type="text" class="form-control" id="cvv" asp-for="@pago.CVV" required>
+            </div>
+            <div class="form-group" id="card-number-field">
+                <label for="cardNumber">Numero de tarjeta</label>
+                <input type="text" class="form-control" id="cardNumber" asp-for="@pago.NumCard" required>
+            </div>
+            <div class="form-group" id="expiration-date">
+                <label>Fecha de Expiración</label>
+                <select asp-for="@pago.mesCard">
+                    @for(int i=0; i<12 ; i++){
+                      <option value=@mes>@mes</option>  
+                      mes++;
+                    }                  
+                </select>
+                <select asp-for="@pago.anioCard">
+                    @for(int i=0; i<10 ; i++){
+                      <option value=@anio>@anio</option>  
+                      anio++;
+                    } 
+                </select>
+            </div>
+            <!-- Colocar varias tipos de tarjetas -->
+            <div class="row text-center mx-auto">
+
+        <!-- Button trigger modal -->
+          <div class="mx-auto">
+            <button type="submit" class="btn btn-warning">
+              Proceder pago
+            </button>
+          </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+  
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+

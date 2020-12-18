@@ -22,13 +22,14 @@
     <br>
     <div class="container">
             <div class="col-md-12 col-12">
-                <table class=" table" class="responsive" >
+                <table class=" table table-bordered" class="responsive" >
                     <thead class="carro" >
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Imagen</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Precio</th>
+                            <th scope="col">Estado</th>
                             
                         </tr>
                     </thead>
@@ -52,9 +53,20 @@
                             </tr>
                             id++;
                         }
+
+                        @if(id>1){
+                            <!-- Acomodar un espacio donde poner el valor Model.Total-->                           
+                        }
                     </tbody>
                 </table>
             </div>   
+        <div class="mx-auto" align="Right">
+            <a asp-controller="Pago" asp-action="Index"><button type="button" class="btn btn-success">
+          Proceder pago
+        </button></a>
+        
+      </div>
+        
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
