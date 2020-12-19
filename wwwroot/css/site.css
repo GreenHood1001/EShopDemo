@@ -814,3 +814,19 @@ section .title::after{
   .contacto .contacto-text{width: 100%; padding: 0px 30px;}
   .contacto .contacto-text p{font-size: 17px;}
 }
+.borde{
+  border: #B82913 1px solid;
+  border-radius:22px;
+}
+.fondo{
+  background-image: url(https://thumbs.dreamstime.com/b/tarjeta-del-pago-trav%C3%A9s-del-terminal-en-fondo-de-madera-de-la-opini%C3%B3n-superior-de-la-tienda-82953023.jpg);
+}
+.title{
+  width: 50%;
+  margin: auto;
+  border:2px solid #B82913;
+  padding:15px;
+  text-align: center;
+  text-decoration-line: underline;
+  color: #B82913;
+}
