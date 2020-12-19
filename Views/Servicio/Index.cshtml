@@ -1,0 +1,67 @@
+<!--  TODO falta cambiar el asp-controller por el objeto del del controller -->
+
+@model dynamic
+
+@{
+    ViewData["Title"]= "Registro de servicios";
+}
+<div class="contacto">
+<div class="container-fluid">
+<div class="row"> 
+  <div class="ejeZcontacto">
+  <div class="contacto-content">
+        <div class="contacto-title"><h2>Registro de servicios</h2><hr></div>
+        <div class="formulario-content">
+        <form id="formulario" asp-controller="Contacto" asp-action="Create">
+            <div class="text-danger"></div>
+            <center>
+            <div class="form-group">
+                <label  class="control-label"></label>
+                <input  class="form-control" placeholder="Ingresa a que categoria pertenece"/>
+                <!--TO DO hacer combo box jalando los id de la categoria -->
+                
+            </div>    
+
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input class="form-control" placeholder="Ingresa el nombre de su servicio "/>
+            </div>               
+                                
+
+            <div class="form-group">
+                <label class="control-label"></label>
+                <input  class="form-control" placeholder="Ingresa el precio de su servicio"/>
+            </div>               
+
+              
+
+            <div class="form-group">
+                <label class="control-label"></label>
+                <textarea  class="form-control"></textarea>
+            </div>    
+
+            <div class="form-group">
+                <label  class="control-label"></label>
+                
+                <input id="image" type="file" name="image" />
+
+
+            </div>   
+  
+            <div class="form-group">
+                 <button type="submit" class="send">Registrar</button> 
+            </div>                
+
+            <div class="mensaje-form">
+            <p>Escribenos un mensaje, con gusto tendras una respuesta de parte de nosotros en muy poco tiempo.</p>
+            </div>
+            </center>
+        </form>
+        </div>
+           
+    
+    </div>
+    </div>
+</div>
+</div>
+</div>
