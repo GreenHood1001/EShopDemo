@@ -348,10 +348,11 @@ section .title::after{
 .img-header{
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 500px;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 .img-header .welcome{
   position: absolute;
@@ -820,6 +821,9 @@ section .title::after{
 }
 .fondo{
   background-image: url(https://thumbs.dreamstime.com/b/tarjeta-del-pago-trav%C3%A9s-del-terminal-en-fondo-de-madera-de-la-opini%C3%B3n-superior-de-la-tienda-82953023.jpg);
+  width: 100%;
+  height: 100px;
+  position: absolute;
 }
 .title{
   width: 50%;
