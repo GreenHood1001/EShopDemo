@@ -28,11 +28,15 @@ namespace EShopDemo.Controllers
             var listProductos=_context.Productos.ToList();
             var listCategorias=_context.Categorias.ToList();
             var listMostrar= new List<Producto>();
+            string titulo="Servicios de "; 
+            string desc= "Aqui podrás encontrar los mejores servicios de ";
             dynamic model = new ExpandoObject();
 
             for(int i=0; i<listCategorias.Count; i++){
                 Categoria cat= listCategorias[i];
                 if(cat.ID==categoria.ID){
+                    titulo = titulo+cat.Name;
+                    desc = desc+cat.Name;
                     string imageBase64Data = Convert.ToBase64String(cat.Banner);
                     string imageDataURL = string.Format("data:image/jpg;base64,{0}",imageBase64Data);
                     ViewBag.imageDataURL = imageDataURL;
@@ -53,7 +57,8 @@ namespace EShopDemo.Controllers
                 prod.imageData = ViewBag.imageDataURL;
             }
 
-            
+            model.Titulo = titulo;    
+            model.Descripcion = desc;       
             model.Mostrar = listMostrar;
             return View(model);
         }

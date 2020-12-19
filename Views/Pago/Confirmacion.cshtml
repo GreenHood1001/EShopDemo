@@ -1,0 +1,23 @@
+@model dynamic
+
+@{
+    ViewData["Title"] = "Compra Exitosa";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    Le agradecemos por comprar en EShop :).
+    <br/>
+    Detalle de los trabajadores:
+    <br/>
+    <ul>
+        @foreach (Producto prod in @Model.Productos)
+        {
+            <li>
+                <a asp-controller="Usuario" asp-action="Information">@prod.Name</a>
+            </li>
+        }
+    </ul>
+</p>
+    

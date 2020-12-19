@@ -6,21 +6,24 @@ namespace EShopDemo.Models
 //TO crear base de datos y vincular
     public class Pago
     {
-        public int ID{ get; set;} 
 
+        [Required]
         public String Name{ get; set; }
         
-        public String Description { get; set;}
-
+        [Required]
         public int Price{ get; set;}
 
-        public String imageData { get; set; }
-
-        public String NombrePropietario { get; set; }
+        [Required]
         public int CVV { get; set; }
-        public int NumeroTarjeta { get; set; }
-        public int mesTarjeta { get; set; }
-        public int añoTarjeta { get; set; }
+
+        [Required]
+        public int NumCard { get; set; }
+
+        [Required]
+        public int mesCard { get; set; }
+
+        [Required]
+        public int anioCard { get; set; }
 
 
 

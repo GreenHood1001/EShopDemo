@@ -20,12 +20,18 @@ namespace EShopDemo.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
 
+        private List<Carrito> listCarro = new List<Carrito>();
+
+        private List<Producto> listProductos = new List<Producto>();
+
         public PagoController(ILogger<PagoController> logger, ApplicationDbContext context,SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            listProductos=_context.Productos.ToList();
+            listCarro=_context.Carritos.ToList();
         }
 
         public IActionResult Index()
@@ -36,9 +42,6 @@ namespace EShopDemo.Controllers
                 var user = _userManager.FindByEmailAsync(email);
                 //se extrae el ID del usuario actualmente logueado
                 var userId = _userManager.GetUserId(User);
-
-                var listProductos=_context.Productos.ToList();
-                var listCarro=_context.Carritos.ToList();
                 var listMostrar= new List<Producto>();
                 int total = 0;
                 Producto prod= new Producto();
@@ -63,6 +66,7 @@ namespace EShopDemo.Controllers
 
                 model.Mostrar = listMostrar;
                 model.Total = total;
+                model.Pago = new Pago();
                 return View(model);
             }
             else
@@ -70,6 +74,48 @@ namespace EShopDemo.Controllers
                 return LocalRedirect("/Identity/Account/Login");
             }
         }
+        
+        [HttpPost]
+        public IActionResult Confirmacion(Pago pago){
+            
+            if(_signInManager.IsSignedIn(User))
+            {
+                if(ModelState.IsValid){
+                    string email = User.Identity.Name;
+                    var user = _userManager.FindByEmailAsync(email);
+                    //se extrae el ID del usuario actualmente logueado
+                    var userId = _userManager.GetUserId(User);
+                    
+                    var listProd= new List<Producto>();
+                    Producto prod= new Producto();
+                    dynamic model = new ExpandoObject();
 
+                    foreach(var carro in listCarro){
+                        if(carro.user_id==userId){
+                            for(int i=0; i<listProductos.Count; i++){
+                                prod=listProductos[i];
+                                if(prod.ID==carro.producto_id){
+                                    listProd.Add(prod);
+                                    
+                                }
+                            }
+                            _context.Remove(carro);
+                        }                       
+                    }
+                    _context.SaveChanges();
+
+                    model.Productos=listProd;
+                    Console.WriteLine("Successful payment");
+                    return View(model);
+
+                }else{
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                return LocalRedirect("/Identity/Account/Login");
+            }
+        }
     }
 }

@@ -3,11 +3,22 @@
 
 @{
     ViewBag.title = "Total a pagar";
-    
+    int mes=1,anio=2020, total=0;
+    Pago pago = @Model.Pago;
 }
-
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/styles.css" />
+<body class="fondo">
+  <br>
+  <br>
 <div class="container">
-    <h1 class="text-center"> @ViewBag.title</h1>
+  <div class="row">
+      <div class="col-md-2 col-1"></div>
+      <div class="col-md-8 col-10">
+        </b><div><h1 class="title"> @ViewBag.title</h1></div>
+        <br>
+        <br>
+<div class="container borde" style="background-color: white;">
     <div class="row mx-auto p-3 mb-2 bg-secondary text-white " >
         <!--Jalar Precio total -->
          <h1 class="text-center">S/. @Model.Total</h1>
@@ -20,7 +31,7 @@
 
         <!-- Button trigger modal -->
       <div class="mx-auto">
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
           Detalle del pago
         </button>
       </div>
@@ -42,12 +53,14 @@
         {
             <h5>Nombre: @producto.Name </h5>
             <h5>Precio: @producto.Price </h5>
+            total= total+ @producto.Price;
+            @pago.Price = total;
         }
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-warning">Entendido</button>
+        <button type="button" class="btn btn-danger">Entendido</button>
       </div>
     </div>
   </div>
@@ -55,60 +68,54 @@
     </div>
 
   <div class="payment">
-        <form>
+        <form asp-controller="Pago" asp-action="Confirmacion">
             <div class="form-group owner">
                 <label for="owner">Nombre del Propietario</label>
-                <input type="text" class="form-control" id="owner">
+                <input type="text" class="form-control borde" id="owner" asp-for="@pago.Name" required>
             </div>
             <div class="form-group CVV">
                 <label for="cvv">CVV</label>
-                <input type="text" class="form-control" id="cvv">
+                <input type="text" class="form-control borde" id="cvv" asp-for="@pago.CVV" required>
             </div>
             <div class="form-group" id="card-number-field">
                 <label for="cardNumber">Numero de tarjeta</label>
-                <input type="text" class="form-control" id="cardNumber">
+                <input type="text" class="form-control borde" id="cardNumber" asp-for="@pago.NumCard" required>
             </div>
             <div class="form-group" id="expiration-date">
                 <label>Fecha de Expiración</label>
-                <select>
-                    <option value="01">Enero</option>
-                    <option value="02">Febrero </option>
-                    <option value="03">Marzo</option>
-                    <option value="04">Abril</option>
-                    <option value="05">Mayo</option>
-                    <option value="06">Junio</option>
-                    <option value="07">Julio</option>
-                    <option value="08">Agostp</option>
-                    <option value="09">Setiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembrer</option>
-                    <option value="12">Diciembre</option>
+                <select asp-for="@pago.mesCard">
+                    @for(int i=0; i<12 ; i++){
+                      <option value=@mes>@mes</option>  
+                      mes++;
+                    }                  
                 </select>
-                <select>
-                    <option value="16"> 2019</option>
-                    <option value="17"> 2020</option>
-                    <option value="18"> 2021</option>
-                    <option value="19"> 2022</option>
-                    <option value="20"> 2023</option>
-                    <option value="21"> 2024</option>
+                <select asp-for="@pago.anioCard">
+                    @for(int i=0; i<10 ; i++){
+                      <option value=@anio>@anio</option>  
+                      anio++;
+                    } 
                 </select>
             </div>
             <!-- Colocar varias tipos de tarjetas -->
-            
+            <div class="row text-center mx-auto">
+
+        <!-- Button trigger modal -->
+          <div class="mx-auto">
+            <button type="submit" class="btn btn-danger">
+              Proceder pago
+            </button>
+          </div>
+        </div>
         </form>
     </div>
 </div>
-
-  <div class="row text-center mx-auto">
-
-        <!-- Button trigger modal -->
-      <div class="mx-auto">
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
-          Proceder pago
-        </button>
       </div>
-    </div>
+      <div class="col-md-2 col-1"></div>
+  </div>
+</div>
 
+  
+</body>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 
-    <div class="img-header">
+    <div class="img-header" style="background: url(@Model.Banner);">
      <div class="welcome">
-       <h1>Bienvenidos a nuestras categorias</h1>
+       <h1>@Model.Titulo</h1>
        <hr>
-       <p>Aquí podrás encontrar los mejores servicios</p>
+       <p>@Model.Descripcion</p>
        <button id="abajo">Novedades</button>
      </div>       
     </div>
