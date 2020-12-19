@@ -9,19 +9,19 @@
         <a  class="menu-btn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bienvenido: @User.Identity.Name</a>
     </li>
     <li>
-            <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="btn btn-link"><a class="menu-btn">Salir</a></button>
-            </form>
-    </li>
-    <li>
         <a class="menu-btn" asp-area="" asp-controller="Contacto" asp-action="Index">Lista Contactos</a>
     </li>  
     <li>
         <a class="menu-btn" asp-area="" asp-controller="Usuario" asp-action="Index">Profile</a>
     </li> 
+        <li>
+        <a class="menu-btn" asp-controller="Carrito" asp-action="Index">Carrito de Compras</a>
+    </li>
     <li>
-        <a class="menu-btn" asp-area="" asp-controller="Usuario" asp-action="Information">Información</a>
-    </li> 
+        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        <button  type="submit" class="btn btn-link"><a class="menu-btn">Salir</a></button>
+        </form>
+    </li>
 }
 else
 {
