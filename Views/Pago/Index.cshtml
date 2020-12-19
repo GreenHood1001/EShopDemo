@@ -6,9 +6,19 @@
     int mes=1,anio=2020, total=0;
     Pago pago = @Model.Pago;
 }
-
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/styles.css" />
+<body class="fondo">
+  <br>
+  <br>
 <div class="container">
-    <h1 class="text-center"> @ViewBag.title</h1>
+  <div class="row">
+      <div class="col-md-2 col-1"></div>
+      <div class="col-md-8 col-10">
+        </b><div><h1 class="title"> @ViewBag.title</h1></div>
+        <br>
+        <br>
+<div class="container borde" style="background-color: white;">
     <div class="row mx-auto p-3 mb-2 bg-secondary text-white " >
         <!--Jalar Precio total -->
          <h1 class="text-center">S/. @Model.Total</h1>
@@ -21,7 +31,7 @@
 
         <!-- Button trigger modal -->
       <div class="mx-auto">
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#staticBackdrop">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop">
           Detalle del pago
         </button>
       </div>
@@ -50,7 +60,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-warning">Entendido</button>
+        <button type="button" class="btn btn-danger">Entendido</button>
       </div>
     </div>
   </div>
@@ -61,15 +71,15 @@
         <form asp-controller="Pago" asp-action="Confirmacion">
             <div class="form-group owner">
                 <label for="owner">Nombre del Propietario</label>
-                <input type="text" class="form-control" id="owner" asp-for="@pago.Name" required>
+                <input type="text" class="form-control borde" id="owner" asp-for="@pago.Name" required>
             </div>
             <div class="form-group CVV">
                 <label for="cvv">CVV</label>
-                <input type="text" class="form-control" id="cvv" asp-for="@pago.CVV" required>
+                <input type="text" class="form-control borde" id="cvv" asp-for="@pago.CVV" required>
             </div>
             <div class="form-group" id="card-number-field">
                 <label for="cardNumber">Numero de tarjeta</label>
-                <input type="text" class="form-control" id="cardNumber" asp-for="@pago.NumCard" required>
+                <input type="text" class="form-control borde" id="cardNumber" asp-for="@pago.NumCard" required>
             </div>
             <div class="form-group" id="expiration-date">
                 <label>Fecha de Expiración</label>
@@ -91,7 +101,7 @@
 
         <!-- Button trigger modal -->
           <div class="mx-auto">
-            <button type="submit" class="btn btn-warning">
+            <button type="submit" class="btn btn-danger">
               Proceder pago
             </button>
           </div>
@@ -99,9 +109,13 @@
         </form>
     </div>
 </div>
+      </div>
+      <div class="col-md-2 col-1"></div>
+  </div>
+</div>
 
   
-
+</body>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
