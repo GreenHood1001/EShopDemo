@@ -5,32 +5,40 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-        <a  class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bienvenido: @User.Identity.Name</a>
+    <li>
+        <a  class="menu-btn" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Bienvenido: @User.Identity.Name</a>
     </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link">Salir</button>
-        </form>
+    <li>
+            <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button  type="submit" class="btn btn-link"><a class="menu-btn">Salir</a></button>
+            </form>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" asp-area="" asp-controller="Contacto" asp-action="Index">Lista Contactos</a>
+    <li>
+        <a class="menu-btn" asp-area="" asp-controller="Contacto" asp-action="Index">Lista Contactos</a>
     </li>  
-    <li class="nav-item">
-        <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Index">Profile</a>
+    <li>
+        <a class="menu-btn" asp-area="" asp-controller="Usuario" asp-action="Index">Profile</a>
     </li> 
-    <li class="nav-item">
-        <a class="nav-link" asp-area="" asp-controller="Usuario" asp-action="Information">Información</a>
+    <li>
+        <a class="menu-btn" asp-area="" asp-controller="Usuario" asp-action="Information">Información</a>
     </li> 
 }
 else
 {
-
-    <li class="nav-item">
-        <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Registro</a>
+    <li>
+        <a class="menu-btn" asp-controller="Contacto" asp-action="Create">Contacto</a>
+    </li> 
+    <li>
+        <a class="menu-btn" asp-controller="Home" asp-action="Index">Home</a>
     </li>
-    <li class="get-started">
-        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+    <li>
+        <a class="menu-btn" asp-controller="Carrito" asp-action="Index">Carrito de Compras</a>
+    </li>
+    <li>
+        <a class="menu-btn" asp-area="Identity" asp-page="/Account/Register">Registro</a>
+    </li>
+    <li>
+        <a class="menu-btn" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>
 
 }
